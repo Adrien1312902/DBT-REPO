@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: example_model
+    description: "Un modèle d'exemple qui affiche un message"
+    columns:
+      - name: greeting
+        description: "Le message affiché"
+        tests:
+          - not_null
+
+
+Add schema.yml for documentation and testing
