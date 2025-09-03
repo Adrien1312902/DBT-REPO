@@ -1,13 +1,19 @@
+
+
 version: 2
 
 models:
   - name: example_model
-    description: "Un modèle d'exemple qui affiche un message"
+    description: "Un modèle de test simple avec une ligne"
     columns:
-      - name: greeting
-        description: "Le message affiché"
+      - name: id
+        description: "L'identifiant de la ligne"
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "Le nom de test"
         tests:
           - not_null
 
-
-Add schema.yml for documentation and testing
