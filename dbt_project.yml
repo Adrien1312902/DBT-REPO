@@ -1,0 +1,13 @@
+name: 'analytics'
+version: '1.0'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_modules"]
+
+models:
+  analytics:
+    +materialized: view
