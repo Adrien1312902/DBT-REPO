@@ -15,3 +15,4 @@ LEFT JOIN {{ ref('artist') }} ar ON a.artistid = ar.artistid
 LEFT JOIN {{ ref('genre') }} g ON t.genreid = g.genreid
 LEFT JOIN {{ ref('mediatype') }} m ON t.mediatypeid = m.mediatypeid
 
+
