@@ -3,13 +3,60 @@ version: 2
 sources:
   - name: music_source
     database: MUSIC_DB
-    schema: PUBLIC
+    schema: MUSIC_SCHEMA
     tables:
-      - name: album1
-      - name: artist1
-      - name: genre1
-      - name: track1
-      - name: mediatype1
-      - name: playlist1
-      - name: playlisttrack1
+      - name: album
+      - name: artist
+      - name: genre
+      - name: mediatype
+      - name: playlist
+      - name: playlisttrack
+      - name: track
+
+models:
+  - name: album
+    description: "Table de dimension contenant les albums"
+    columns:
+      - name: albumid
+        tests:
+          - unique
+          - not_null
+  - name: artist
+    description: "Table de dimension des artistes"
+    columns:
+      - name: artistid
+        tests:
+          - unique
+          - not_null
+  - name: genre
+    description: "Table de dimension des genres"
+    columns:
+      - name: genreid
+        tests:
+          - unique
+          - not_null
+  - name: mediatype
+    description: "Table de dimension des types de média"
+    columns:
+      - name: mediatypeid
+        tests:
+          - unique
+          - not_null
+  - name: playlist
+    description: "Table de dimension des playlists"
+    columns:
+      - name: playlistid
+        tests:
+          - unique
+          - not_null
+  - name: playlisttrack
+    description: "Association entre playlist et morceaux"
+  - name: track
+    description: "Table de faits contenant les morceaux"
+    columns:
+      - name: trackid
+        tests:
+          - unique
+          - not_null
+
 
