@@ -1,19 +1,15 @@
-
-
 version: 2
 
-models:
-  - name: example_model
-    description: "Un modèle de test simple avec une ligne"
-    columns:
-      - name: id
-        description: "L'identifiant de la ligne"
-        tests:
-          - not_null
-          - unique
-
-      - name: name
-        description: "Le nom de test"
-        tests:
-          - not_null
+sources:
+  - name: music_source
+    database: MUSIC_DB
+    schema: PUBLIC
+    tables:
+      - name: album1
+      - name: artist1
+      - name: genre1
+      - name: track1
+      - name: mediatype1
+      - name: playlist1
+      - name: playlisttrack1
 
