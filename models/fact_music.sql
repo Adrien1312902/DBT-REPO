@@ -10,11 +10,12 @@ SELECT
     t.bytes,
     t.unitprice
 
-FROM (SELECT * FROM {{ source('music_source', 'track') }}) t
-LEFT JOIN {{ ref('album') }} a ON t.albumid = a.albumid
-LEFT JOIN {{ ref('artist') }} ar ON a.artistid = ar.artistid
-LEFT JOIN {{ ref('genre') }} g ON t.genreid = g.genreid
-LEFT JOIN {{ ref('mediatype') }} m ON t.mediatypeid = m.mediatypeid
+FROM {{ source('music_source', 'track') }} t
+LEFT JOIN {{ source('music_source', 'album') }} a ON t.albumid = a.albumid
+LEFT JOIN {{ source('music_source', 'artist') }} ar ON a.artistid = ar.artistid
+LEFT JOIN {{ source('music_source', 'genre') }} g ON t.genreid = g.genreid
+LEFT JOIN {{ source('music_source', 'mediatype') }} m ON t.mediatypeid = m.mediatypeid
+
 
 
 
