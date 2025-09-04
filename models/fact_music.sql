@@ -10,7 +10,7 @@ SELECT
     t.bytes,
     t.unitprice
 
-FROM {{ ref('track') }} t
+FROM {{ source('music_source', 'track') }}
 LEFT JOIN {{ ref('album') }} a ON t.albumid = a.albumid
 LEFT JOIN {{ ref('artist') }} ar ON a.artistid = ar.artistid
 LEFT JOIN {{ ref('genre') }} g ON t.genreid = g.genreid
