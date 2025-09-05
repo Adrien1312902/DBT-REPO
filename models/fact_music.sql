@@ -1,15 +1,15 @@
 SELECT
-    t.trackid,
-    t.name AS track_name,
-    a.title AS album_title,
-    ar.name AS artist_name,
-    g.name AS genre,
-    m.name AS mediatype,
-    t.composer,
-    t.milliseconds,
-    t.bytes,
-    t.unitprice
-
+  t.trackid,
+  t.name AS track_name,
+  t.title AS album_title,
+  ar.name AS artist_name,
+  g.name AS genre,
+  m.name AS mediatype,
+  t.composer,
+  a.Prod_year, 
+  t.milliseconds,
+  t.bytes,
+  t.unitprice
 FROM {{ source('music_source', 'track') }} t
 LEFT JOIN {{ source('music_source', 'album') }} a ON t.albumid = a.albumid
 LEFT JOIN {{ source('music_source', 'artist') }} ar ON a.artistid = ar.artistid
