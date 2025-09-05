@@ -1,3 +1,5 @@
+{{ config(materialized='view') }}
+
 SELECT
   t.Name AS track_name,
   a.Name AS artist_name,
