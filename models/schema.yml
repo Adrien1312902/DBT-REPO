@@ -21,7 +21,7 @@ models:
       - name: album_title
         description: "Titre de l'album"
 
-  - name: 2track_2000_2002
+  - name: track_2000_2002
     description: "Morceaux produits en 2000 ou en 2002."
     columns:
       - name: track_name
