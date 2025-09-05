@@ -1,5 +1,19 @@
 version: 2
 
+sources:
+  - name: music_source
+    database: ton_database      # optionnel, ex: SNOWFLAKE_MUSIC_DB
+    schema: ton_schema          # ex: RAW ou PUBLIC
+    tables:
+      - name: artist
+      - name: album
+      - name: track
+      - name: genre
+      - name: playlist
+      - name: playlisttrack
+      - name: mediatype
+
+
 models:
   - name: artists_plus1_cd
     description: "Titres des albums qui ont plus de 1 CD."
