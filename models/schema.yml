@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: music_source
     database: MUSIC_DB      # optionnel, ex: SNOWFLAKE_MUSIC_DB
-    schema: PUBLIC         # ex: RAW ou PUBLIC
+    schema: music_schema         # ex: RAW ou PUBLIC
     tables:
       - name: artist
       - name: album
