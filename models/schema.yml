@@ -1,62 +1,98 @@
 version: 2
 
-sources:
-  - name: music_source
-    database: MUSIC_DB
-    schema: MUSIC_SCHEMA
-    tables:
-      - name: album
-      - name: artist
-      - name: genre
-      - name: mediatype
-      - name: playlist
-      - name: playlisttrack
-      - name: track
-
 models:
-  - name: album
-    description: "Table de dimension contenant les albums"
+  - name: artists_plus1_cd
+    description: "Titres des albums qui ont plus de 1 CD."
     columns:
-      - name: albumid
-        tests:
-          - unique
-          - not_null
-  - name: artist
-    description: "Table de dimension des artistes"
+      - name: album_title
+        description: "Titre de l'album"
+
+  - name: 2track_2000_2002
+    description: "Morceaux produits en 2000 ou en 2002."
     columns:
-      - name: artistid
-        tests:
-          - unique
-          - not_null
-  - name: genre
-    description: "Table de dimension des genres"
+      - name: track_name
+        description: "Nom du morceau"
+      - name: year
+        description: "Année de production"
+
+  - name: morceaux_rock_jazz
+    description: "Nom et compositeur des morceaux de Rock et Jazz."
     columns:
-      - name: genreid
-        tests:
-          - unique
-          - not_null
-  - name: mediatype
-    description: "Table de dimension des types de média"
+      - name: track_name
+        description: "Nom du morceau"
+      - name: composer
+        description: "Nom du compositeur"
+      - name: genre
+        description: "Genre musical"
+
+  - name: top10_albums_plus_long
+    description: "Les 10 albums les plus longs."
     columns:
-      - name: mediatypeid
-        tests:
-          - unique
-          - not_null
-  - name: playlist
-    description: "Table de dimension des playlists"
+      - name: album_title
+        description: "Titre de l'album"
+      - name: total_duration
+        description: "Durée totale en millisecondes"
+
+  - name: album_par_artist
+    description: "Nombre d'albums produits par artiste."
     columns:
-      - name: playlistid
-        tests:
-          - unique
-          - not_null
-  - name: playlisttrack
-    description: "Association entre playlist et morceaux"
-  - name: track
-    description: "Table de faits contenant les morceaux"
+      - name: artist_name
+        description: "Nom de l'artiste"
+      - name: album_count
+        description: "Nombre d'albums"
+
+  - name: morceaux_par_artiste
+    description: "Nombre de morceaux produits par artiste."
     columns:
-      - name: trackid
-        tests:
-          - unique
-          - not_null
+      - name: artist_name
+        description: "Nom de l'artiste"
+      - name: track_count
+        description: "Nombre de morceaux"
+
+  - name: genre_populaire_2000
+    description: "Genre musical le plus écouté dans les années 2000."
+    columns:
+      - name: genre
+        description: "Nom du genre"
+      - name: play_count
+        description: "Nombre d'écoutes"
+
+  - name: playlist_morceaux_plus_4min
+    description: "Noms de toutes les playlists avec morceaux > 4 minutes."
+    columns:
+      - name: playlist_name
+        description: "Nom de la playlist"
+      - name: track_name
+        description: "Nom du morceau"
+      - name: duration
+        description: "Durée en millisecondes"
+
+  - name: morceaux_artist_fr
+    description: "Morceaux de Rock dont les artistes sont français."
+    columns:
+      - name: track_name
+        description: "Nom du morceau"
+      - name: artist_name
+        description: "Nom de l'artiste"
+      - name: country
+        description: "Pays de l'artiste"
+
+  - name: moyenne_taille_genre
+    description: "Moyenne des tailles des morceaux par genre musical."
+    columns:
+      - name: genre
+        description: "Nom du genre"
+      - name: average_size
+        description: "Taille moyenne des morceaux (en octets)"
+
+  - name: playlist_artistes_avant1990
+    description: "Playlists contenant des morceaux d'artistes nés avant 1990."
+    columns:
+      - name: playlist_name
+        description: "Nom de la playlist"
+      - name: track_name
+        description: "Nom du morceau"
+      - name: artist_birth_year
+        description: "Année de naissance de l'artiste"
 
 
