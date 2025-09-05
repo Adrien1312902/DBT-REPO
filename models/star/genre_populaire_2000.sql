@@ -1,3 +1,5 @@
+{{ config(materialized='view') }}
+
 SELECT
   g.Name AS genre,
   COUNT(*) AS play_count
