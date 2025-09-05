@@ -1,7 +1,14 @@
 {{ config(materialized='view') }}
 
-SELECT DISTINCT p.playlistid
-FROM {{ ref('fact_music') }} f
-JOIN {{ ref('playlisttrack') }} p ON f.trackid = p.trackid
-JOIN {{ ref('artist') }} a ON f.artist_name = a.name
-WHERE a.birthyear < 1990
+SELECT
+  p.Name AS playlist_name,
+  t.Name AS track_name,
+  ar.Name AS artist_name,
+  ar.BirthYear
+FROM {{ source('music_source', 'playlisttrack') }} pt
+JOIN {{ source('music_source', 'track') }} t ON pt.TrackId = t.TrackId
+JOIN {{ source('music_source', 'album') }} al ON t.AlbumId = al.AlbumId
+JOIN {{ source('music_source', 'artist') }} ar ON al.ArtistId = ar.ArtistId
+JOIN {{ source('music_source', 'playlist') }} p ON pt.PlaylistId = p.PlaylistId
+WHERE ar.BirthYear < 1990
+
