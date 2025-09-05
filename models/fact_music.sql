@@ -1,7 +1,7 @@
 SELECT
   t.trackid,
   t.name AS track_name,
-  t.title AS album_title,
+  a.title AS album_title,
   ar.name AS artist_name,
   g.name AS genre,
   m.name AS mediatype,
